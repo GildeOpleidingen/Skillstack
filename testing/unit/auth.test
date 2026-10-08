@@ -25,7 +25,7 @@ describe("auth configuration", () => {
   it("loads when all required environment variables exist", async () => {
     setValidEnv();
 
-    const { env, authConfig } = await import("./auth.config");
+    const { env, authConfig } = await import("../../src/auth.config");
 
     expect(env).toEqual(validEnv);
     expect(authConfig.session).toEqual({
@@ -43,7 +43,7 @@ describe("auth configuration", () => {
     setValidEnv();
     delete process.env[missingKey];
 
-    await expect(import("./auth.config")).rejects.toThrow(
+    await expect(import("../../src/auth.config")).rejects.toThrow(
       `Missing required environment variable: ${missingKey}`,
     );
   });
@@ -56,7 +56,7 @@ describe("auth configuration", () => {
     setValidEnv();
     process.env[emptyKey] = "   ";
 
-    await expect(import("./auth.config")).rejects.toThrow(
+    await expect(import("../../src/auth.config")).rejects.toThrow(
       `Missing required environment variable: ${emptyKey}`,
     );
   });
@@ -64,7 +64,7 @@ describe("auth configuration", () => {
   it("adds the GitHub profile id to the JWT", async () => {
     setValidEnv();
 
-    const { authConfig } = await import("./auth.config");
+    const { authConfig } = await import("../../src/auth.config");
 
     const token = {};
 
@@ -84,7 +84,7 @@ describe("auth configuration", () => {
   it("copies the JWT id into the session user", async () => {
     setValidEnv();
 
-    const { authConfig } = await import("./auth.config");
+    const { authConfig } = await import("../../src/auth.config");
 
     const session = {
       user: {
@@ -111,7 +111,7 @@ describe("auth configuration", () => {
   it("does not overwrite the session id when the token has no id", async () => {
     setValidEnv();
 
-    const { authConfig } = await import("./auth.config");
+    const { authConfig } = await import("../../src/auth.config");
 
     const session = {
       user: {
@@ -136,7 +136,7 @@ describe("auth configuration", () => {
   it("allows sign-in when a GitHub profile exists", async () => {
     setValidEnv();
 
-    const { authConfig } = await import("./auth.config");
+    const { authConfig } = await import("../../src/auth.config");
 
     const result = await authConfig.callbacks!.signIn!({
       profile: {
@@ -152,7 +152,7 @@ describe("auth configuration", () => {
   it("rejects sign-in when the GitHub profile is missing", async () => {
     setValidEnv();
 
-    const { authConfig } = await import("./auth.config");
+    const { authConfig } = await import("../../src/auth.config");
 
     const result = await authConfig.callbacks!.signIn!({
       profile: undefined,

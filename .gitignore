@@ -47,3 +47,5 @@ next-env.d.ts
 
 # Test results
 /test-results
+
+.devin

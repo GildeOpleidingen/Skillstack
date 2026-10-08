@@ -16,6 +16,27 @@ Minimum Postgres version > 18
 ```bash
 npm install
 ```
+
+
+## Database
+
+
+Linux as root:
+```bash
+apt install postgresql postgresql-client
+
+su - postgres
+createuser --pwprompt rayit
+Enter password for new role: 
+Enter it again: 
+createdb -O rayit skillstack
+
+```
+
+Copy the .env_example to .env and change configuration.
+
+
+\\ OLD
 > Init the database (create database first)
 ```bash
 npm run db:init

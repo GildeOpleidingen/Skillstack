@@ -27,7 +27,7 @@
 /.idea
 /.alchemy
 /.prisma-composer
-/.package-lock.json
+package-lock.json
 
 # debug
 npm-debug.log*

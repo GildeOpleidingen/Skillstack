@@ -7,18 +7,20 @@
 ## Dependencies
 
 Minimum Node.js version > 22
+
 Minimum Postgres version > 18
 
 ## Setup
 
-> Copy .env_example -> .env
-> Install dependencies 
+Copy the .env_example to .env and change configuration.
+
+Install dependencies by using:
 ```bash
 npm install
 ```
 
 
-## Database
+### Database
 
 
 Linux as root:
@@ -33,13 +35,12 @@ createdb -O rayit skillstack
 
 ```
 
-Copy the .env_example to .env and change configuration.
+#### Quick reference commands
 
-
-\\ OLD
-> Init the database (create database first)
 ```bash
-npm run db:init
+npx prisma contract emit       # Update contract.json and contract.d.ts
+npx prisma db init             # Create tables in the database
+npx prisma migration status    # Show migration status
 ```
 
 ### Used by Auth
@@ -60,7 +61,7 @@ AUTH_URL=http://localhost:3000
 ## TDD (tests)
 > Start NextJS local
 ```bash
-npm dev
+npm run dev
 ```
 
 ## TDD  (tests)

@@ -1,16 +1,12 @@
 // use prisma-8
 
 model User {
-        github_id          @id  Int                   @unique
-        github_username         String                @unique
-        full_name               String?
-        email                   String?               @unique
-        full_name               String?
-        avatar_url              String?
-        company                 String?
-        location                String?
-        createdAt TimestamptzString     @default(now())
-        -- createdBy               Int
-        -- updatedAt temporal.updatedAtString()
-        -- updatedBy               Int
+        github_id       Int      @unique
+        github_username String   @unique
+        full_name       String?
+        email           String?  @unique
+        avatar_url      String?
+        company         String?
+        location        String?
+        createdAt       TimestamptzString @default(now())
 }

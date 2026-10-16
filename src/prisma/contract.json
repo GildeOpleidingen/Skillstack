@@ -3,11 +3,108 @@
   "targetFamily": "sql",
   "target": "postgres",
   "profileHash": "3916f444a8a17ad749191acf9e08dad97d1a327b88c2f1d45d12f240296aa8b2",
-  "roots": {},
+  "roots": {
+    "User": {
+      "model": "User",
+      "namespace": "public"
+    }
+  },
   "domain": {
     "namespaces": {
       "public": {
-        "models": {}
+        "models": {
+          "User": {
+            "fields": {
+              "avatar_url": {
+                "nullable": true,
+                "type": {
+                  "codecId": "pg/text@1",
+                  "kind": "scalar"
+                }
+              },
+              "company": {
+                "nullable": true,
+                "type": {
+                  "codecId": "pg/text@1",
+                  "kind": "scalar"
+                }
+              },
+              "createdAt": {
+                "nullable": false,
+                "type": {
+                  "codecId": "pg/timestamptz-string@1",
+                  "kind": "scalar"
+                }
+              },
+              "email": {
+                "nullable": true,
+                "type": {
+                  "codecId": "pg/text@1",
+                  "kind": "scalar"
+                }
+              },
+              "full_name": {
+                "nullable": true,
+                "type": {
+                  "codecId": "pg/text@1",
+                  "kind": "scalar"
+                }
+              },
+              "github_id": {
+                "nullable": false,
+                "type": {
+                  "codecId": "pg/int4@1",
+                  "kind": "scalar"
+                }
+              },
+              "github_username": {
+                "nullable": false,
+                "type": {
+                  "codecId": "pg/text@1",
+                  "kind": "scalar"
+                }
+              },
+              "location": {
+                "nullable": true,
+                "type": {
+                  "codecId": "pg/text@1",
+                  "kind": "scalar"
+                }
+              }
+            },
+            "relations": {},
+            "storage": {
+              "fields": {
+                "avatar_url": {
+                  "column": "avatar_url"
+                },
+                "company": {
+                  "column": "company"
+                },
+                "createdAt": {
+                  "column": "createdAt"
+                },
+                "email": {
+                  "column": "email"
+                },
+                "full_name": {
+                  "column": "full_name"
+                },
+                "github_id": {
+                  "column": "github_id"
+                },
+                "github_username": {
+                  "column": "github_username"
+                },
+                "location": {
+                  "column": "location"
+                }
+              },
+              "namespaceId": "public",
+              "table": "User"
+            }
+          }
+        }
       }
     }
   },
@@ -15,13 +112,81 @@
     "namespaces": {
       "public": {
         "entries": {
-          "table": {}
+          "table": {
+            "User": {
+              "columns": {
+                "avatar_url": {
+                  "codecId": "pg/text@1",
+                  "dataType": "pg/text",
+                  "nullable": true
+                },
+                "company": {
+                  "codecId": "pg/text@1",
+                  "dataType": "pg/text",
+                  "nullable": true
+                },
+                "createdAt": {
+                  "codecId": "pg/timestamptz-string@1",
+                  "dataType": "pg/timestamptz",
+                  "default": {
+                    "expression": "now()",
+                    "kind": "function"
+                  },
+                  "nullable": false
+                },
+                "email": {
+                  "codecId": "pg/text@1",
+                  "dataType": "pg/text",
+                  "nullable": true
+                },
+                "full_name": {
+                  "codecId": "pg/text@1",
+                  "dataType": "pg/text",
+                  "nullable": true
+                },
+                "github_id": {
+                  "codecId": "pg/int4@1",
+                  "dataType": "pg/int4",
+                  "nullable": false
+                },
+                "github_username": {
+                  "codecId": "pg/text@1",
+                  "dataType": "pg/text",
+                  "nullable": false
+                },
+                "location": {
+                  "codecId": "pg/text@1",
+                  "dataType": "pg/text",
+                  "nullable": true
+                }
+              },
+              "foreignKeys": [],
+              "indexes": [],
+              "uniques": [
+                {
+                  "columns": [
+                    "github_id"
+                  ]
+                },
+                {
+                  "columns": [
+                    "github_username"
+                  ]
+                },
+                {
+                  "columns": [
+                    "email"
+                  ]
+                }
+              ]
+            }
+          }
         },
         "id": "public",
         "kind": "postgres-schema"
       }
     },
-    "storageHash": "0c0734babd6eeb868fee1f281ca96963022475611560e9f170f465daa35f8599"
+    "storageHash": "93eaa1ffc1d7549072bdf4690f10e6c8fd91fb07e6ce39e981a49ea20d452032"
   },
   "capabilities": {
     "postgres": {

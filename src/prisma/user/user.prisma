@@ -1,7 +1,7 @@
 // use prisma-8
 
 model User {
-        github_id       Int      @unique
+        github_id       Int      @id
         github_username String   @unique
         full_name       String?
         email           String?  @unique

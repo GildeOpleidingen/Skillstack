@@ -2,23 +2,13 @@ import postgres from "@prisma/orm-postgres/runtime";
 
 import "temporal-polyfill/global";
 
-import service from "../../service";
-import type { Contract } from "./contract.d";
-import contractJson from "./contract.json" with { type: "json" };
-
-function loadComposerDatabase() {
-  try {
-    return service.load().database.client;
-  } catch {
-    return undefined;
-  }
-}
+import type { Contract } from "./assignment/assignment.d";
+import contractJson from "./assignment/assignment.json" with { type: "json" };
 
 export const db =
-  loadComposerDatabase() ??
-  (process.env.DATABASE_URL
+  process.env.DATABASE_URL
     ? postgres<Contract>({ contractJson, url: process.env.DATABASE_URL })
-    : postgres<Contract>({ contractJson }));
+    : postgres<Contract>({ contractJson });
 
 let connection: Promise<void> | undefined;
 

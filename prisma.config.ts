@@ -10,7 +10,7 @@ export default definePrismaConfig({
   //   state: prismaState()
   // }),
   orm: ormConfig({
-    contract: './src/prisma/contract.prisma',
+    contract: './src/prisma/*.prisma',
     db: {
       connection: process.env['DATABASE_URL']!,
     },

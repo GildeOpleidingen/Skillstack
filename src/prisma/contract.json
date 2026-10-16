@@ -162,12 +162,12 @@
               },
               "foreignKeys": [],
               "indexes": [],
+              "primaryKey": {
+                "columns": [
+                  "github_id"
+                ]
+              },
               "uniques": [
-                {
-                  "columns": [
-                    "github_id"
-                  ]
-                },
                 {
                   "columns": [
                     "github_username"
@@ -186,7 +186,7 @@
         "kind": "postgres-schema"
       }
     },
-    "storageHash": "93eaa1ffc1d7549072bdf4690f10e6c8fd91fb07e6ce39e981a49ea20d452032"
+    "storageHash": "e7fa6ed2876da3a5e7b501438a5c69d60a5d94799e22467f96c2dd1402fbe18d"
   },
   "capabilities": {
     "postgres": {

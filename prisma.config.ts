@@ -1,5 +1,5 @@
 import 'dotenv/config';
-import { definePrismaConfig } from '@prisma/cli-engine';
+import { definePrismaConfig } from 'prisma/config';
 import { defineConfig as ormConfig } from '@prisma/orm-postgres/config';
 //import { defineConfig as composer } from '@prisma/composer/config';
 //import { prismaCloud, prismaState } from '@prisma/composer-prisma-cloud/control';
@@ -10,7 +10,7 @@ export default definePrismaConfig({
   //   state: prismaState()
   // }),
   orm: ormConfig({
-    contract: './src/prisma/contract.prisma',
+    contract: './src/prisma/assignment/assignment.prisma',
     db: {
       connection: process.env['DATABASE_URL']!,
     },

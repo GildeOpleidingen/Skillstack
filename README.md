@@ -41,6 +41,11 @@ createdb -O rayit skillstack
 npx prisma contract emit       # Update contract.json and contract.d.ts
 npx prisma db init             # Create tables in the database
 npx prisma migration status    # Show migration status
+
+npx prisma contract emit       # emit code changes in database
+npx prisma migration plan --name add_favorite_color # Plan database change
+npx prisma db migrate --advance-ref db # Apply change to database with migration
+npx prisma db update --db "$DATABASE_URL" # Update database without migration
 ```
 
 ### Used by Auth

@@ -7,37 +7,93 @@ import Editor from '@monaco-editor/react';
 
 
 // @TODO move somewhere? (DB or ?)
+/*
+languages that have rich IntelliSense and validation
+
+    TypeScript
+    JavaScript
+    CSS
+    LESS
+    SCSS
+    JSON
+    HTML
+
+languages with only basic syntax colorization
+
+    XML
+    PHP
+    C#
+    C++
+    Razor
+    Markdown
+    Diff
+    Java
+    VB
+    CoffeeScript
+    Handlebars
+    Batch
+    Pug
+    F#
+    Lua
+    Powershell
+    Python
+    Ruby
+    SASS
+    R
+    Objective-C
+*/
+
+let code = "let code = \"code\";"
+
 const codingLanguages = [
-        { id: 'C', name: "c"},
-        { id: 'CPP', name: 'Cpp'  },
-        { id: 'JAVASCRIPT', name: 'Javascript' },
-        { id: 'JAVA', name: 'Java' },
+        { id: 'C++', name: 'c++'  },
+        { id: 'javascript', name: 'Javascript' },
+        { id: 'Java', name: 'Java' },
 ];
 
-
 // language selector
-function getMonacoLanguage(lang) {
-        let language = codingLanguages.map(l => {
-                if(lang == l.id) {
-                        return l;
+function getMonacoLanguage(lang)
+{
+        let language = {id:"PLAINTEXT", name: "plaintext"};
+        for(let i = 0; i < codingLanguages.length; i++) {
+                let cl = codingLanguages[i];
+                if (cl.id == lang) {
+                        language = cl;
+                        continue;
                 }
-        })
-        return {id:"PLAINTEXT", name: "plaintext"};
+        }
+        return language;
 }
 
+
+// @TODO save code? or do something
+// Maybe in browser session
+function saveCode(code) 
+{
+        console.debug('code Editor code: ', code);
+}
+
+
 // Main function
-export default function CodeEditor() {
+export default function CodeEditor({exerciseId}) {
+
+        // We pass on the exerciseId (props)?
+        console.log('Exercise ID#: ', exerciseId);
+
+        let lang = getMonacoLanguage("C++").id;
+        console.log('Language selected: ', lang);
 
 	return (
 		<div>
-			<h1>CodeEditor</h1>
+                        <br />
+			<h1 className="mb-4 text-4xl font-bold tracking-tight text-heading md:text-5xl lg:text-6xl">CodeEditor</h1>
 			<Editor
 		          height="400px"
                           width="400px"
-		          language={getMonacoLanguage("C").id}
+		          language={getMonacoLanguage("javascript").id}
                           // Code should be here
-		          value={"#include <stdio.h>"}
-		          // onChange={(value) => setCode(value || '')}
+		          value={code}
+		          onChange={saveCode}
 		          theme="vs-dark"
 		          options={{
 		            minimap: { enabled: false },

@@ -34,7 +34,12 @@ export default async function Home() {
                                 <a href="/user" className="rounded-lg bg-blue-600 px-4 py-2 text-white hover:bg-blue-700" >Database test!!</a>
 
                                 <hr />
-                                <CodeEditor />
+
+                                { /* Test of code editor */ }
+                                { /* Looking into howto pass props to the component */ }
+                                <CodeEditor 
+                                        exerciseId={5}
+                                />
                         </main>
                 </div>
         );

@@ -8,10 +8,11 @@ import AssignmentProfile from "@/components/AssignmentProfile";
 import CodeEditor from "@/components/Editor"
 
 export default async function Home() {
+
         // Do authentication (see uhm auth.ts)
         const session = await auth();
 
-        // Redirect user when no session
+        // Redirect user when no session, so you need to login
         if (!session?.user) {
                 redirect("/login");
         }
@@ -20,12 +21,14 @@ export default async function Home() {
         return (
                 <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
                         <main className="flex flex-1 w-full max-w-3xl flex-col bg-white dark:bg-black sm:items-start">
+                                
                                 Session:
                                 <pre>
                                 {JSON.stringify(session, null, 2)}
                                 </pre>
                                 <hr />
                                 Components:
+                                { /* Components test and passing session to Sidebar */ }
                                 <Sidebar session={session} />
                                 <Roadmap />
                                 <AssignmentProfile />
@@ -39,6 +42,7 @@ export default async function Home() {
                                 { /* Looking into howto pass props to the component */ }
                                 <CodeEditor 
                                         exerciseId={5}
+                                        code={"let c = 10;"}
                                 />
                         </main>
                 </div>

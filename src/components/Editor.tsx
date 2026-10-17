@@ -43,8 +43,6 @@ languages with only basic syntax colorization
     Objective-C
 */
 
-let code = "let code = \"code\";"
-
 const codingLanguages = [
         { id: 'C++', name: 'c++'  },
         { id: 'javascript', name: 'Javascript' },
@@ -75,7 +73,7 @@ function saveCode(code)
 
 
 // Main function
-export default function CodeEditor({exerciseId}) {
+export default function CodeEditor({exerciseId, code = null, }) {
 
         // We pass on the exerciseId (props)?
         console.log('Exercise ID#: ', exerciseId);

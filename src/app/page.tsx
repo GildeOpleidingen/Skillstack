@@ -5,6 +5,7 @@ import { redirect } from "next/navigation";
 import Sidebar from "@/components/Sidebar";
 import Roadmap from "@/components/Roadmap";
 import AssignmentProfile from "@/components/AssignmentProfile";
+import CodeEditor from "@/components/Editor"
 
 export default async function Home() {
         // Do authentication (see uhm auth.ts)
@@ -32,6 +33,8 @@ export default async function Home() {
                                 <a href="/roadmap">Roadmap link to page</a>
                                 <a href="/user" className="rounded-lg bg-blue-600 px-4 py-2 text-white hover:bg-blue-700" >Database test!!</a>
 
+                                <hr />
+                                <CodeEditor />
                         </main>
                 </div>
         );

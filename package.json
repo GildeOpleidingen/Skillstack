@@ -28,10 +28,12 @@
     "test:e2e:ui": "playwright test --ui"
   },
   "dependencies": {
+    "@monaco-editor/react": "^4.7.0",
     "@prisma/composer": "0.28.0",
     "@prisma/composer-prisma-cloud": "0.28.0",
     "@prisma/orm-postgres": "8.0.0-rc.16",
     "alchemy": "2.0.0-beta.78",
+    "monaco-editor": "^0.57.0",
     "next": "16.4.0",
     "next-auth": "^5.0.0-beta.32",
     "react": "19.3.0",

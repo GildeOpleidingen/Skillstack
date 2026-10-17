@@ -17,7 +17,7 @@ export default async function user() {
                         <ul>
                         {
                                 users.map( (user) => (
-                                        <li key={user.id}>{user.email}</li>
+                                        <li key={user.github_id}>{user.email}</li>
                                 ))
                         }
                         </ul>

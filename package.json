@@ -18,10 +18,12 @@
   },
   "dependencies": {
     "@monaco-editor/react": "^4.7.0",
+    "@prisma/adapter-pg": "^7.10.1",
+    "@prisma/client": "^7.10.1",
     "@prisma/composer": "^0.30.0",
-    "@prisma/orm-postgres": "^8.0.0-rc.18",
     "next": "16.3.6",
     "next-auth": "^5.0.0-beta.32",
+    "pg": "^8.23.1",
     "react": "19.2.8",
     "react-dom": "19.2.8",
     "temporal-polyfill": "^1.0.6",
@@ -34,13 +36,15 @@
     "@types/react-dom": "^19",
     "eslint": "^9",
     "eslint-config-next": "16.3.6",
-    "prisma": "^8.0.0-rc.23",
+    "prisma": "^7.10.1",
     "tailwindcss": "^4",
     "typescript": "^5"
   },
   "allowScripts": {
     "unrs-resolver@1.12.2": true,
     "esbuild@0.28.2": true,
-    "workerd@1.20261002.1": true
+    "workerd@1.20261002.1": true,
+    "prisma@7.10.1": true,
+    "@prisma/engines@7.10.1": true
   }
 }

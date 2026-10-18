@@ -7,7 +7,6 @@
 ## Dependencies
 
 Minimum Node.js version > 22
-
 Minimum Postgres version > 18
 
 ## Setup
@@ -19,9 +18,7 @@ Install dependencies by using:
 npm install
 ```
 
-
 ### Database
-
 
 Linux as root:
 ```bash

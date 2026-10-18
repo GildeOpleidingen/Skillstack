@@ -11,9 +11,10 @@ async function runSeed(): Promise<void> {
         await connectDatabase();
 
         for (const assignment of assignments) {
-                await db.orm.public.Assignment.upsert({
+                await db.Assignment.upsert({
                         create: assignment,
-                        update: {}
+                        update: {},
+                        where: { title: assignment.title } 
                 });
         }
 }

@@ -1,21 +1,18 @@
 model Assignment {
-  id               String         @id @default(uuid()) @db.Uuid
+  id               String          @id @default(uuid()) @db.Uuid
   title            String
   description      String
   profilePhotoUrl  String
-  assignmentTypeId String?        @db.Uuid
-  createdAt        DateTime       @default(now()) @db.Timestamptz(6)
-  updatedAt        DateTime       @updatedAt @db.Timestamptz(6)
-
-  type AssignmentType? @relation(fields: [assignmentTypeId], references: [id])
+  assignmentTypeId String?         @db.Uuid
+  createdAt        DateTime        @default(now()) @db.Timestamptz(6)
+  updatedAt        DateTime        @updatedAt @db.Timestamptz(6)
+  type             AssignmentType? @relation(fields: [assignmentTypeId], references: [id])
 }
 
 model AssignmentType {
-  id         String       @id @default(uuid()) @db.Uuid
-  typeName   String
-  createdAt  DateTime     @default(now()) @db.Timestamptz(6)
-  updatedAt  DateTime     @updatedAt @db.Timestamptz(6)
-
+  id          String       @id @default(uuid()) @db.Uuid
+  typeName    String
+  createdAt   DateTime     @default(now()) @db.Timestamptz(6)
+  updatedAt   DateTime     @updatedAt @db.Timestamptz(6)
   assignments Assignment[]
 }
-

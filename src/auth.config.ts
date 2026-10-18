@@ -44,6 +44,7 @@ export const authConfig: NextAuthConfig = {
                 async signIn({ profile }) {
                         // Check provider
                         //if (account?.provider !== 'github' ) return false;
+                        console.log('auth.config.ts - signIn - profile: ', profile);
 
                         const githubId = Number(profile.id);
                         console.log(githubId)

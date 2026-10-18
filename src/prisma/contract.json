@@ -24,7 +24,7 @@
           "Assignment": {
             "fields": {
               "assignmentTypeId": {
-                "nullable": false,
+                "nullable": true,
                 "type": {
                   "codecId": "pg/uuid@1",
                   "kind": "scalar"
@@ -76,7 +76,7 @@
             "relations": {
               "type": {
                 "cardinality": "N:1",
-                "nullable": false,
+                "nullable": true,
                 "on": {
                   "localFields": [
                     "assignmentTypeId"
@@ -275,7 +275,11 @@
                 "assignmentTypeId": {
                   "codecId": "pg/uuid@1",
                   "dataType": "pg/uuid",
-                  "nullable": false
+                  "default": {
+                    "kind": "literal",
+                    "value": null
+                  },
+                  "nullable": true
                 },
                 "createdAt": {
                   "codecId": "pg/timestamptz-string@1",
@@ -459,7 +463,7 @@
         "kind": "postgres-schema"
       }
     },
-    "storageHash": "9f94a6c6ad7f159154fb0e16f9e3f3f1e5420165bf6ea3a78aaddc15fbc999f4"
+    "storageHash": "12a8879b5d84dfea4a6d28f28fb503f6807016994253565085cba17695bb8bfa"
   },
   "execution": {
     "executionHash": "5e398c3ec3d0c080cc56868f85a33197dd723e4bd5adb32d54b094f804fcd2fc",

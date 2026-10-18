@@ -18,7 +18,7 @@ import type {
 } from '@prisma/orm-postgres/contract/types';
 
 export type StorageHash =
-  StorageHashBase<'9f94a6c6ad7f159154fb0e16f9e3f3f1e5420165bf6ea3a78aaddc15fbc999f4'>;
+  StorageHashBase<'12a8879b5d84dfea4a6d28f28fb503f6807016994253565085cba17695bb8bfa'>;
 export type ExecutionHash =
   ExecutionHashBase<'5e398c3ec3d0c080cc56868f85a33197dd723e4bd5adb32d54b094f804fcd2fc'>;
 export type ProfileHash =
@@ -235,7 +235,7 @@ type DefaultLiteralValue<CodecId extends string, Encoded> = CodecId extends keyo
 export type FieldOutputTypes = {
   readonly public: {
     readonly Assignment: {
-      readonly assignmentTypeId: CodecTypes['pg/uuid@1']['output'];
+      readonly assignmentTypeId: CodecTypes['pg/uuid@1']['output'] | null;
       readonly createdAt: CodecTypes['pg/timestamptz-string@1']['output'];
       readonly description: CodecTypes['pg/text@1']['output'];
       readonly id: CodecTypes['pg/uuid@1']['output'];
@@ -264,7 +264,7 @@ export type FieldOutputTypes = {
 export type FieldInputTypes = {
   readonly public: {
     readonly Assignment: {
-      readonly assignmentTypeId: CodecTypes['pg/uuid@1']['input'];
+      readonly assignmentTypeId: CodecTypes['pg/uuid@1']['input'] | null;
       readonly createdAt: CodecTypes['pg/timestamptz-string@1']['input'];
       readonly description: CodecTypes['pg/text@1']['input'];
       readonly id: CodecTypes['pg/uuid@1']['input'];
@@ -293,7 +293,7 @@ export type FieldInputTypes = {
 export type StorageColumnTypes = {
   readonly public: {
     readonly Assignment: {
-      readonly assignmentTypeId: CodecTypes['pg/uuid@1']['output'];
+      readonly assignmentTypeId: CodecTypes['pg/uuid@1']['output'] | null;
       readonly createdAt: CodecTypes['pg/timestamptz-string@1']['output'];
       readonly description: CodecTypes['pg/text@1']['output'];
       readonly id: CodecTypes['pg/uuid@1']['output'];
@@ -322,7 +322,7 @@ export type StorageColumnTypes = {
 export type StorageColumnInputTypes = {
   readonly public: {
     readonly Assignment: {
-      readonly assignmentTypeId: CodecTypes['pg/uuid@1']['input'];
+      readonly assignmentTypeId: CodecTypes['pg/uuid@1']['input'] | null;
       readonly createdAt: CodecTypes['pg/timestamptz-string@1']['input'];
       readonly description: CodecTypes['pg/text@1']['input'];
       readonly id: CodecTypes['pg/uuid@1']['input'];
@@ -351,14 +351,14 @@ export type StorageColumnInputTypes = {
 
 export namespace Models {
   export type public_Assignment = {
-    assignmentTypeId: CodecTypes['pg/uuid@1']['output'];
+    assignmentTypeId: CodecTypes['pg/uuid@1']['output'] | null;
     createdAt: CodecTypes['pg/timestamptz-string@1']['output'];
     description: CodecTypes['pg/text@1']['output'];
     id: CodecTypes['pg/uuid@1']['output'];
     profilePhotoUrl: CodecTypes['pg/text@1']['output'];
     title: CodecTypes['pg/text@1']['output'];
     updatedAt: CodecTypes['pg/timestamptz-string@1']['output'];
-    type: public_AssignmentType;
+    type: public_AssignmentType | null;
     readonly [RelationKeys]?: 'type';
   };
   export type public_AssignmentType = {
@@ -412,7 +412,11 @@ type ContractBase = Omit<
                 readonly assignmentTypeId: {
                   readonly dataType: 'pg/uuid';
                   readonly codecId: 'pg/uuid@1';
-                  readonly nullable: false;
+                  readonly nullable: true;
+                  readonly default: {
+                    readonly kind: 'literal';
+                    readonly value: DefaultLiteralValue<'pg/uuid@1', null>;
+                  };
                   readonly many: false;
                 };
                 readonly createdAt: {
@@ -599,7 +603,7 @@ type ContractBase = Omit<
           readonly Assignment: {
             readonly fields: {
               readonly assignmentTypeId: {
-                readonly nullable: false;
+                readonly nullable: true;
                 readonly type: { readonly kind: 'scalar'; readonly codecId: 'pg/uuid@1' };
               };
               readonly createdAt: {
@@ -640,7 +644,7 @@ type ContractBase = Omit<
                   readonly model: 'AssignmentType';
                 };
                 readonly cardinality: 'N:1';
-                readonly nullable: false;
+                readonly nullable: true;
                 readonly on: {
                   readonly localFields: readonly ['assignmentTypeId'];
                   readonly targetFields: readonly ['id'];

@@ -5,7 +5,7 @@ export default async function user() {
         
         await connectDatabase();
 
-        const users = await db.orm.public.User.all();
+        const users = await db.User.findMany();
         
         return (
                 <main>

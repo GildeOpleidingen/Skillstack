@@ -5,11 +5,11 @@ model Assignment {
         title String
         description String
         profilePhotoUrl String
-        assignmentTypeId Uuid
+        assignmentTypeId Uuid? @default(null)
         createdAt TimestamptzString @default(now())
         updatedAt temporal.updatedAtString()
 
-        type AssignmentType @relation(fields: [assignmentTypeId], references: [id])
+        type AssignmentType? @relation(fields: [assignmentTypeId], references: [id])
 }
 
 model AssignmentType {

@@ -1,8 +1,12 @@
 {
 <<<<<<< HEAD
+<<<<<<< HEAD
   "hash": "9064709980fe813ae09a6ef738581245b9b861c6c7176bc50f0475c7d36f5ed7",
 =======
   "hash": "e7fa6ed2876da3a5e7b501438a5c69d60a5d94799e22467f96c2dd1402fbe18d",
 >>>>>>> 13-login-via-github
+=======
+  "hash": "d9d5ba2aeb498e7d76f3a32935279d5c698d773f462f69ce270acbb8f037486d",
+>>>>>>> origin/24-opdrachtprofiel
   "invariants": []
 }

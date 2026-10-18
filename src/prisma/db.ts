@@ -1,21 +1,13 @@
-import postgres from "@prisma/orm-postgres/runtime";
+// src/prisma/db.ts
+import "dotenv/config";
+import { PrismaPg } from "@prisma/adapter-pg";
+import { PrismaClient } from "../generated/prisma/client"; // adjust to the actual generated path
 
-import "temporal-polyfill/global";
+const adapter = new PrismaPg({
+  connectionString: process.env.DATABASE_URL!,
+});
 
-import type { Contract } from "./contract.d";
-import contractJson from "./contract.json" with { type: "json" };
+export const prisma = new PrismaClient({ adapter });
+export const db = prisma;
+export const connectDatabase = () => prisma.$connect();
 
-export const db =
-  process.env.DATABASE_URL
-    ? postgres<Contract>({ contractJson, url: process.env.DATABASE_URL })
-    : postgres<Contract>({ contractJson });
-
-let connection: Promise<void> | undefined;
-
-export function connectDatabase(): Promise<void> {
-  connection ??= db.connect().then(() => undefined).catch((error: unknown) => {
-    connection = undefined;
-    throw error;
-  });
-  return connection;
-}

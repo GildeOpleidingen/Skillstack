@@ -51,7 +51,7 @@ export const authConfig: NextAuthConfig = {
 
                         await connectDatabase();
 
-                        await db.orm.public.User.upsert({
+                        await db.User.upsert({
                                 where: {github_id:githubId},
                                 create: { 
                                         github_id: githubId,

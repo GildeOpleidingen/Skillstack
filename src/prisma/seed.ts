@@ -2,9 +2,9 @@ import "dotenv/config"
 import { connectDatabase, db } from "./db";
 
 const users = [
-  { email: "alice@prisma.io", username: "alice", name: "Alice" },
-  { email: "bob@prisma.io", username: "bob", name: "Bob" },
-  { email: "carol@prisma.io", username: "carol", name: "Carol" },
+  { email: "alice@prisma.io", github_username: "alice", full_name: "Alice", github_id: "123" },
+  { email: "bob@prisma.io", github_username: "bob", full_name: "Bob", github_id: "1234"  },
+  { email: "carol@prisma.io", github_username: "carol", full_name: "Carol", github_id: "12345" },
 ];
 
 let pendingSeed: Promise<void> | undefined;

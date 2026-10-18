@@ -18,7 +18,7 @@ import type {
 } from '@prisma/orm-postgres/contract/types';
 
 export type StorageHash =
-  StorageHashBase<'9064709980fe813ae09a6ef738581245b9b861c6c7176bc50f0475c7d36f5ed7'>;
+  StorageHashBase<'9f94a6c6ad7f159154fb0e16f9e3f3f1e5420165bf6ea3a78aaddc15fbc999f4'>;
 export type ExecutionHash =
   ExecutionHashBase<'5e398c3ec3d0c080cc56868f85a33197dd723e4bd5adb32d54b094f804fcd2fc'>;
 export type ProfileHash =
@@ -249,6 +249,16 @@ export type FieldOutputTypes = {
       readonly typeName: CodecTypes['pg/text@1']['output'];
       readonly updatedAt: CodecTypes['pg/timestamptz-string@1']['output'];
     };
+    readonly User: {
+      readonly avatar_url: CodecTypes['pg/text@1']['output'] | null;
+      readonly company: CodecTypes['pg/text@1']['output'] | null;
+      readonly createdAt: CodecTypes['pg/timestamptz-string@1']['output'];
+      readonly email: CodecTypes['pg/text@1']['output'] | null;
+      readonly full_name: CodecTypes['pg/text@1']['output'] | null;
+      readonly github_id: CodecTypes['pg/int4@1']['output'];
+      readonly github_username: CodecTypes['pg/text@1']['output'];
+      readonly location: CodecTypes['pg/text@1']['output'] | null;
+    };
   };
 };
 export type FieldInputTypes = {
@@ -267,6 +277,16 @@ export type FieldInputTypes = {
       readonly id: CodecTypes['pg/uuid@1']['input'];
       readonly typeName: CodecTypes['pg/text@1']['input'];
       readonly updatedAt: CodecTypes['pg/timestamptz-string@1']['input'];
+    };
+    readonly User: {
+      readonly avatar_url: CodecTypes['pg/text@1']['input'] | null;
+      readonly company: CodecTypes['pg/text@1']['input'] | null;
+      readonly createdAt: CodecTypes['pg/timestamptz-string@1']['input'];
+      readonly email: CodecTypes['pg/text@1']['input'] | null;
+      readonly full_name: CodecTypes['pg/text@1']['input'] | null;
+      readonly github_id: CodecTypes['pg/int4@1']['input'];
+      readonly github_username: CodecTypes['pg/text@1']['input'];
+      readonly location: CodecTypes['pg/text@1']['input'] | null;
     };
   };
 };
@@ -287,6 +307,16 @@ export type StorageColumnTypes = {
       readonly typeName: CodecTypes['pg/text@1']['output'];
       readonly updatedAt: CodecTypes['pg/timestamptz-string@1']['output'];
     };
+    readonly User: {
+      readonly avatar_url: CodecTypes['pg/text@1']['output'] | null;
+      readonly company: CodecTypes['pg/text@1']['output'] | null;
+      readonly createdAt: CodecTypes['pg/timestamptz-string@1']['output'];
+      readonly email: CodecTypes['pg/text@1']['output'] | null;
+      readonly full_name: CodecTypes['pg/text@1']['output'] | null;
+      readonly github_id: CodecTypes['pg/int4@1']['output'];
+      readonly github_username: CodecTypes['pg/text@1']['output'];
+      readonly location: CodecTypes['pg/text@1']['output'] | null;
+    };
   };
 };
 export type StorageColumnInputTypes = {
@@ -305,6 +335,16 @@ export type StorageColumnInputTypes = {
       readonly id: CodecTypes['pg/uuid@1']['input'];
       readonly typeName: CodecTypes['pg/text@1']['input'];
       readonly updatedAt: CodecTypes['pg/timestamptz-string@1']['input'];
+    };
+    readonly User: {
+      readonly avatar_url: CodecTypes['pg/text@1']['input'] | null;
+      readonly company: CodecTypes['pg/text@1']['input'] | null;
+      readonly createdAt: CodecTypes['pg/timestamptz-string@1']['input'];
+      readonly email: CodecTypes['pg/text@1']['input'] | null;
+      readonly full_name: CodecTypes['pg/text@1']['input'] | null;
+      readonly github_id: CodecTypes['pg/int4@1']['input'];
+      readonly github_username: CodecTypes['pg/text@1']['input'];
+      readonly location: CodecTypes['pg/text@1']['input'] | null;
     };
   };
 };
@@ -328,12 +368,24 @@ export namespace Models {
     updatedAt: CodecTypes['pg/timestamptz-string@1']['output'];
     readonly [RelationKeys]?: never;
   };
+  export type public_User = {
+    avatar_url: CodecTypes['pg/text@1']['output'] | null;
+    company: CodecTypes['pg/text@1']['output'] | null;
+    createdAt: CodecTypes['pg/timestamptz-string@1']['output'];
+    email: CodecTypes['pg/text@1']['output'] | null;
+    full_name: CodecTypes['pg/text@1']['output'] | null;
+    github_id: CodecTypes['pg/int4@1']['output'];
+    github_username: CodecTypes['pg/text@1']['output'];
+    location: CodecTypes['pg/text@1']['output'] | null;
+    readonly [RelationKeys]?: never;
+  };
 }
 
 export declare const models: {
   public: {
     Assignment: Models.public_Assignment;
     AssignmentType: Models.public_AssignmentType;
+    User: Models.public_User;
   };
 };
 
@@ -459,6 +511,66 @@ type ContractBase = Omit<
               indexes: readonly [];
               foreignKeys: readonly [];
             };
+            readonly User: {
+              columns: {
+                readonly avatar_url: {
+                  readonly dataType: 'pg/text';
+                  readonly codecId: 'pg/text@1';
+                  readonly nullable: true;
+                  readonly many: false;
+                };
+                readonly company: {
+                  readonly dataType: 'pg/text';
+                  readonly codecId: 'pg/text@1';
+                  readonly nullable: true;
+                  readonly many: false;
+                };
+                readonly createdAt: {
+                  readonly dataType: 'pg/timestamptz';
+                  readonly codecId: 'pg/timestamptz-string@1';
+                  readonly nullable: false;
+                  readonly default: { readonly kind: 'function'; readonly expression: 'now()' };
+                  readonly many: false;
+                };
+                readonly email: {
+                  readonly dataType: 'pg/text';
+                  readonly codecId: 'pg/text@1';
+                  readonly nullable: true;
+                  readonly many: false;
+                };
+                readonly full_name: {
+                  readonly dataType: 'pg/text';
+                  readonly codecId: 'pg/text@1';
+                  readonly nullable: true;
+                  readonly many: false;
+                };
+                readonly github_id: {
+                  readonly dataType: 'pg/int4';
+                  readonly codecId: 'pg/int4@1';
+                  readonly nullable: false;
+                  readonly many: false;
+                };
+                readonly github_username: {
+                  readonly dataType: 'pg/text';
+                  readonly codecId: 'pg/text@1';
+                  readonly nullable: false;
+                  readonly many: false;
+                };
+                readonly location: {
+                  readonly dataType: 'pg/text';
+                  readonly codecId: 'pg/text@1';
+                  readonly nullable: true;
+                  readonly many: false;
+                };
+              };
+              primaryKey: { readonly columns: readonly ['github_id'] };
+              uniques: readonly [
+                { readonly columns: readonly ['github_username'] },
+                { readonly columns: readonly ['email'] },
+              ];
+              indexes: readonly [];
+              foreignKeys: readonly [];
+            };
           };
         };
       };
@@ -478,6 +590,7 @@ type ContractBase = Omit<
       readonly namespace: 'public' & NamespaceId;
       readonly model: 'AssignmentType';
     };
+    readonly User: { readonly namespace: 'public' & NamespaceId; readonly model: 'User' };
   };
   readonly domain: {
     readonly namespaces: {
@@ -582,6 +695,60 @@ type ContractBase = Omit<
                 readonly id: { readonly column: 'id' };
                 readonly typeName: { readonly column: 'typeName' };
                 readonly updatedAt: { readonly column: 'updatedAt' };
+              };
+            };
+          };
+          readonly User: {
+            readonly fields: {
+              readonly avatar_url: {
+                readonly nullable: true;
+                readonly type: { readonly kind: 'scalar'; readonly codecId: 'pg/text@1' };
+              };
+              readonly company: {
+                readonly nullable: true;
+                readonly type: { readonly kind: 'scalar'; readonly codecId: 'pg/text@1' };
+              };
+              readonly createdAt: {
+                readonly nullable: false;
+                readonly type: {
+                  readonly kind: 'scalar';
+                  readonly codecId: 'pg/timestamptz-string@1';
+                };
+              };
+              readonly email: {
+                readonly nullable: true;
+                readonly type: { readonly kind: 'scalar'; readonly codecId: 'pg/text@1' };
+              };
+              readonly full_name: {
+                readonly nullable: true;
+                readonly type: { readonly kind: 'scalar'; readonly codecId: 'pg/text@1' };
+              };
+              readonly github_id: {
+                readonly nullable: false;
+                readonly type: { readonly kind: 'scalar'; readonly codecId: 'pg/int4@1' };
+              };
+              readonly github_username: {
+                readonly nullable: false;
+                readonly type: { readonly kind: 'scalar'; readonly codecId: 'pg/text@1' };
+              };
+              readonly location: {
+                readonly nullable: true;
+                readonly type: { readonly kind: 'scalar'; readonly codecId: 'pg/text@1' };
+              };
+            };
+            readonly relations: Record<string, never>;
+            readonly storage: {
+              readonly table: 'User';
+              readonly namespaceId: 'public';
+              readonly fields: {
+                readonly avatar_url: { readonly column: 'avatar_url' };
+                readonly company: { readonly column: 'company' };
+                readonly createdAt: { readonly column: 'createdAt' };
+                readonly email: { readonly column: 'email' };
+                readonly full_name: { readonly column: 'full_name' };
+                readonly github_id: { readonly column: 'github_id' };
+                readonly github_username: { readonly column: 'github_username' };
+                readonly location: { readonly column: 'location' };
               };
             };
           };

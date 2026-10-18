@@ -1,9 +1,6 @@
 
 import { db, connectDatabase } from "../../prisma/db";
 
-
-
-
 export default async function user() {
         
         await connectDatabase();

@@ -20,7 +20,24 @@ npm install
 
 ### Database
 
+After creating the .env file with the right database URL.
+You can create the database with the command:
+
+```bash
+npx prisma db pus
+```
+
+To Seed the database with test rows:
+
+```bash
+npm run seed
+```
+
+
+#### Linux database postgresql installation
+
 Linux as root:
+
 ```bash
 apt install postgresql postgresql-client
 

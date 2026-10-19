@@ -8,7 +8,9 @@
  *
  * 🟢 You can import this file directly.
  */
-export type * from './models/Assignment'
-export type * from './models/AssignmentType'
+export type * from './models/assessment'
+export type * from './models/assessment_categories'
+export type * from './models/assessment_tests'
+export type * from './models/submissions'
 export type * from './models/User'
 export type * from './commonInputTypes'

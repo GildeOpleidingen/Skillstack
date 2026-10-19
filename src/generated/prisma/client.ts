@@ -31,8 +31,8 @@ export * from "./enums"
  * const prisma = new PrismaClient({
  *   adapter: new PrismaPg({ connectionString: process.env.DATABASE_URL })
  * })
- * // Fetch zero or more Assignments
- * const assignments = await prisma.assignment.findMany()
+ * // Fetch zero or more Assessments
+ * const assessments = await prisma.assessment.findMany()
  * ```
  * 
  * Read more in our [docs](https://pris.ly/d/client).
@@ -42,15 +42,25 @@ export type PrismaClient<LogOpts extends Prisma.LogLevel = never, OmitOpts exten
 export { Prisma }
 
 /**
- * Model Assignment
+ * Model assessment
  * 
  */
-export type Assignment = Prisma.AssignmentModel
+export type assessment = Prisma.assessmentModel
 /**
- * Model AssignmentType
+ * Model assessment_categories
  * 
  */
-export type AssignmentType = Prisma.AssignmentTypeModel
+export type assessment_categories = Prisma.assessment_categoriesModel
+/**
+ * Model assessment_tests
+ * 
+ */
+export type assessment_tests = Prisma.assessment_testsModel
+/**
+ * Model submissions
+ * 
+ */
+export type submissions = Prisma.submissionsModel
 /**
  * Model User
  * 

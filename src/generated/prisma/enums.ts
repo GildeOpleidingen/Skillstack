@@ -9,7 +9,10 @@
 * 🟢 You can import this file directly.
 */
 
+export const ExerciseCategoryType = {
+  python: 'python',
+  cpp: 'cpp',
+  nodejs: 'nodejs'
+} as const
 
-
-// This file is empty because there are no enums in the schema.
-export {}
+export type ExerciseCategoryType = (typeof ExerciseCategoryType)[keyof typeof ExerciseCategoryType]

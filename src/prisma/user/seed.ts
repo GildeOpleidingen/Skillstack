@@ -13,7 +13,7 @@ async function runSeed(): Promise<void> {
   await connectDatabase();
 
   for (const user of users) {
-    await db.User.upsert({
+    await db.user.upsert({
       create: user,
       update: {},
       where: { email: user.email },

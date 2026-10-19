@@ -397,8 +397,10 @@ type FieldRefInputType<Model, FieldType> = Model extends never ? never : FieldRe
 
 
 export const ModelName = {
-  Assignment: 'Assignment',
-  AssignmentType: 'AssignmentType',
+  assessment: 'assessment',
+  assessment_categories: 'assessment_categories',
+  assessment_tests: 'assessment_tests',
+  submissions: 'submissions',
   User: 'User'
 } as const
 
@@ -415,155 +417,303 @@ export type TypeMap<ExtArgs extends runtime.Types.Extensions.InternalArgs = runt
     omit: GlobalOmitOptions
   }
   meta: {
-    modelProps: "assignment" | "assignmentType" | "user"
+    modelProps: "assessment" | "assessment_categories" | "assessment_tests" | "submissions" | "user"
     txIsolationLevel: TransactionIsolationLevel
   }
   model: {
-    Assignment: {
-      payload: Prisma.$AssignmentPayload<ExtArgs>
-      fields: Prisma.AssignmentFieldRefs
+    assessment: {
+      payload: Prisma.$assessmentPayload<ExtArgs>
+      fields: Prisma.assessmentFieldRefs
       operations: {
         findUnique: {
-          args: Prisma.AssignmentFindUniqueArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$AssignmentPayload> | null
+          args: Prisma.assessmentFindUniqueArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$assessmentPayload> | null
         }
         findUniqueOrThrow: {
-          args: Prisma.AssignmentFindUniqueOrThrowArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$AssignmentPayload>
+          args: Prisma.assessmentFindUniqueOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$assessmentPayload>
         }
         findFirst: {
-          args: Prisma.AssignmentFindFirstArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$AssignmentPayload> | null
+          args: Prisma.assessmentFindFirstArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$assessmentPayload> | null
         }
         findFirstOrThrow: {
-          args: Prisma.AssignmentFindFirstOrThrowArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$AssignmentPayload>
+          args: Prisma.assessmentFindFirstOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$assessmentPayload>
         }
         findMany: {
-          args: Prisma.AssignmentFindManyArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$AssignmentPayload>[]
+          args: Prisma.assessmentFindManyArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$assessmentPayload>[]
         }
         create: {
-          args: Prisma.AssignmentCreateArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$AssignmentPayload>
+          args: Prisma.assessmentCreateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$assessmentPayload>
         }
         createMany: {
-          args: Prisma.AssignmentCreateManyArgs<ExtArgs>
+          args: Prisma.assessmentCreateManyArgs<ExtArgs>
           result: BatchPayload
         }
         createManyAndReturn: {
-          args: Prisma.AssignmentCreateManyAndReturnArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$AssignmentPayload>[]
+          args: Prisma.assessmentCreateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$assessmentPayload>[]
         }
         delete: {
-          args: Prisma.AssignmentDeleteArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$AssignmentPayload>
+          args: Prisma.assessmentDeleteArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$assessmentPayload>
         }
         update: {
-          args: Prisma.AssignmentUpdateArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$AssignmentPayload>
+          args: Prisma.assessmentUpdateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$assessmentPayload>
         }
         deleteMany: {
-          args: Prisma.AssignmentDeleteManyArgs<ExtArgs>
+          args: Prisma.assessmentDeleteManyArgs<ExtArgs>
           result: BatchPayload
         }
         updateMany: {
-          args: Prisma.AssignmentUpdateManyArgs<ExtArgs>
+          args: Prisma.assessmentUpdateManyArgs<ExtArgs>
           result: BatchPayload
         }
         updateManyAndReturn: {
-          args: Prisma.AssignmentUpdateManyAndReturnArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$AssignmentPayload>[]
+          args: Prisma.assessmentUpdateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$assessmentPayload>[]
         }
         upsert: {
-          args: Prisma.AssignmentUpsertArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$AssignmentPayload>
+          args: Prisma.assessmentUpsertArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$assessmentPayload>
         }
         aggregate: {
-          args: Prisma.AssignmentAggregateArgs<ExtArgs>
-          result: runtime.Types.Utils.Optional<Prisma.AggregateAssignment>
+          args: Prisma.AssessmentAggregateArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AggregateAssessment>
         }
         groupBy: {
-          args: Prisma.AssignmentGroupByArgs<ExtArgs>
-          result: runtime.Types.Utils.Optional<Prisma.AssignmentGroupByOutputType>[]
+          args: Prisma.assessmentGroupByArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AssessmentGroupByOutputType>[]
         }
         count: {
-          args: Prisma.AssignmentCountArgs<ExtArgs>
-          result: runtime.Types.Utils.Optional<Prisma.AssignmentCountAggregateOutputType> | number
+          args: Prisma.assessmentCountArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AssessmentCountAggregateOutputType> | number
         }
       }
     }
-    AssignmentType: {
-      payload: Prisma.$AssignmentTypePayload<ExtArgs>
-      fields: Prisma.AssignmentTypeFieldRefs
+    assessment_categories: {
+      payload: Prisma.$assessment_categoriesPayload<ExtArgs>
+      fields: Prisma.assessment_categoriesFieldRefs
       operations: {
         findUnique: {
-          args: Prisma.AssignmentTypeFindUniqueArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$AssignmentTypePayload> | null
+          args: Prisma.assessment_categoriesFindUniqueArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$assessment_categoriesPayload> | null
         }
         findUniqueOrThrow: {
-          args: Prisma.AssignmentTypeFindUniqueOrThrowArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$AssignmentTypePayload>
+          args: Prisma.assessment_categoriesFindUniqueOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$assessment_categoriesPayload>
         }
         findFirst: {
-          args: Prisma.AssignmentTypeFindFirstArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$AssignmentTypePayload> | null
+          args: Prisma.assessment_categoriesFindFirstArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$assessment_categoriesPayload> | null
         }
         findFirstOrThrow: {
-          args: Prisma.AssignmentTypeFindFirstOrThrowArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$AssignmentTypePayload>
+          args: Prisma.assessment_categoriesFindFirstOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$assessment_categoriesPayload>
         }
         findMany: {
-          args: Prisma.AssignmentTypeFindManyArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$AssignmentTypePayload>[]
+          args: Prisma.assessment_categoriesFindManyArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$assessment_categoriesPayload>[]
         }
         create: {
-          args: Prisma.AssignmentTypeCreateArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$AssignmentTypePayload>
+          args: Prisma.assessment_categoriesCreateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$assessment_categoriesPayload>
         }
         createMany: {
-          args: Prisma.AssignmentTypeCreateManyArgs<ExtArgs>
+          args: Prisma.assessment_categoriesCreateManyArgs<ExtArgs>
           result: BatchPayload
         }
         createManyAndReturn: {
-          args: Prisma.AssignmentTypeCreateManyAndReturnArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$AssignmentTypePayload>[]
+          args: Prisma.assessment_categoriesCreateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$assessment_categoriesPayload>[]
         }
         delete: {
-          args: Prisma.AssignmentTypeDeleteArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$AssignmentTypePayload>
+          args: Prisma.assessment_categoriesDeleteArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$assessment_categoriesPayload>
         }
         update: {
-          args: Prisma.AssignmentTypeUpdateArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$AssignmentTypePayload>
+          args: Prisma.assessment_categoriesUpdateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$assessment_categoriesPayload>
         }
         deleteMany: {
-          args: Prisma.AssignmentTypeDeleteManyArgs<ExtArgs>
+          args: Prisma.assessment_categoriesDeleteManyArgs<ExtArgs>
           result: BatchPayload
         }
         updateMany: {
-          args: Prisma.AssignmentTypeUpdateManyArgs<ExtArgs>
+          args: Prisma.assessment_categoriesUpdateManyArgs<ExtArgs>
           result: BatchPayload
         }
         updateManyAndReturn: {
-          args: Prisma.AssignmentTypeUpdateManyAndReturnArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$AssignmentTypePayload>[]
+          args: Prisma.assessment_categoriesUpdateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$assessment_categoriesPayload>[]
         }
         upsert: {
-          args: Prisma.AssignmentTypeUpsertArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$AssignmentTypePayload>
+          args: Prisma.assessment_categoriesUpsertArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$assessment_categoriesPayload>
         }
         aggregate: {
-          args: Prisma.AssignmentTypeAggregateArgs<ExtArgs>
-          result: runtime.Types.Utils.Optional<Prisma.AggregateAssignmentType>
+          args: Prisma.Assessment_categoriesAggregateArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AggregateAssessment_categories>
         }
         groupBy: {
-          args: Prisma.AssignmentTypeGroupByArgs<ExtArgs>
-          result: runtime.Types.Utils.Optional<Prisma.AssignmentTypeGroupByOutputType>[]
+          args: Prisma.assessment_categoriesGroupByArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.Assessment_categoriesGroupByOutputType>[]
         }
         count: {
-          args: Prisma.AssignmentTypeCountArgs<ExtArgs>
-          result: runtime.Types.Utils.Optional<Prisma.AssignmentTypeCountAggregateOutputType> | number
+          args: Prisma.assessment_categoriesCountArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.Assessment_categoriesCountAggregateOutputType> | number
+        }
+      }
+    }
+    assessment_tests: {
+      payload: Prisma.$assessment_testsPayload<ExtArgs>
+      fields: Prisma.assessment_testsFieldRefs
+      operations: {
+        findUnique: {
+          args: Prisma.assessment_testsFindUniqueArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$assessment_testsPayload> | null
+        }
+        findUniqueOrThrow: {
+          args: Prisma.assessment_testsFindUniqueOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$assessment_testsPayload>
+        }
+        findFirst: {
+          args: Prisma.assessment_testsFindFirstArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$assessment_testsPayload> | null
+        }
+        findFirstOrThrow: {
+          args: Prisma.assessment_testsFindFirstOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$assessment_testsPayload>
+        }
+        findMany: {
+          args: Prisma.assessment_testsFindManyArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$assessment_testsPayload>[]
+        }
+        create: {
+          args: Prisma.assessment_testsCreateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$assessment_testsPayload>
+        }
+        createMany: {
+          args: Prisma.assessment_testsCreateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        createManyAndReturn: {
+          args: Prisma.assessment_testsCreateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$assessment_testsPayload>[]
+        }
+        delete: {
+          args: Prisma.assessment_testsDeleteArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$assessment_testsPayload>
+        }
+        update: {
+          args: Prisma.assessment_testsUpdateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$assessment_testsPayload>
+        }
+        deleteMany: {
+          args: Prisma.assessment_testsDeleteManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateMany: {
+          args: Prisma.assessment_testsUpdateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateManyAndReturn: {
+          args: Prisma.assessment_testsUpdateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$assessment_testsPayload>[]
+        }
+        upsert: {
+          args: Prisma.assessment_testsUpsertArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$assessment_testsPayload>
+        }
+        aggregate: {
+          args: Prisma.Assessment_testsAggregateArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AggregateAssessment_tests>
+        }
+        groupBy: {
+          args: Prisma.assessment_testsGroupByArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.Assessment_testsGroupByOutputType>[]
+        }
+        count: {
+          args: Prisma.assessment_testsCountArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.Assessment_testsCountAggregateOutputType> | number
+        }
+      }
+    }
+    submissions: {
+      payload: Prisma.$submissionsPayload<ExtArgs>
+      fields: Prisma.submissionsFieldRefs
+      operations: {
+        findUnique: {
+          args: Prisma.submissionsFindUniqueArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$submissionsPayload> | null
+        }
+        findUniqueOrThrow: {
+          args: Prisma.submissionsFindUniqueOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$submissionsPayload>
+        }
+        findFirst: {
+          args: Prisma.submissionsFindFirstArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$submissionsPayload> | null
+        }
+        findFirstOrThrow: {
+          args: Prisma.submissionsFindFirstOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$submissionsPayload>
+        }
+        findMany: {
+          args: Prisma.submissionsFindManyArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$submissionsPayload>[]
+        }
+        create: {
+          args: Prisma.submissionsCreateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$submissionsPayload>
+        }
+        createMany: {
+          args: Prisma.submissionsCreateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        createManyAndReturn: {
+          args: Prisma.submissionsCreateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$submissionsPayload>[]
+        }
+        delete: {
+          args: Prisma.submissionsDeleteArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$submissionsPayload>
+        }
+        update: {
+          args: Prisma.submissionsUpdateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$submissionsPayload>
+        }
+        deleteMany: {
+          args: Prisma.submissionsDeleteManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateMany: {
+          args: Prisma.submissionsUpdateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateManyAndReturn: {
+          args: Prisma.submissionsUpdateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$submissionsPayload>[]
+        }
+        upsert: {
+          args: Prisma.submissionsUpsertArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$submissionsPayload>
+        }
+        aggregate: {
+          args: Prisma.SubmissionsAggregateArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AggregateSubmissions>
+        }
+        groupBy: {
+          args: Prisma.submissionsGroupByArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.SubmissionsGroupByOutputType>[]
+        }
+        count: {
+          args: Prisma.submissionsCountArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.SubmissionsCountAggregateOutputType> | number
         }
       }
     }
@@ -680,27 +830,58 @@ export const TransactionIsolationLevel = runtime.makeStrictEnum({
 export type TransactionIsolationLevel = (typeof TransactionIsolationLevel)[keyof typeof TransactionIsolationLevel]
 
 
-export const AssignmentScalarFieldEnum = {
+export const AssessmentScalarFieldEnum = {
   id: 'id',
   title: 'title',
   description: 'description',
-  profilePhotoUrl: 'profilePhotoUrl',
-  assignmentTypeId: 'assignmentTypeId',
-  createdAt: 'createdAt',
-  updatedAt: 'updatedAt'
+  input: 'input',
+  expected_output: 'expected_output',
+  max_score: 'max_score',
+  assessment_category_id: 'assessment_category_id',
+  sub_id: 'sub_id'
 } as const
 
-export type AssignmentScalarFieldEnum = (typeof AssignmentScalarFieldEnum)[keyof typeof AssignmentScalarFieldEnum]
+export type AssessmentScalarFieldEnum = (typeof AssessmentScalarFieldEnum)[keyof typeof AssessmentScalarFieldEnum]
 
 
-export const AssignmentTypeScalarFieldEnum = {
+export const Assessment_categoriesScalarFieldEnum = {
   id: 'id',
-  typeName: 'typeName',
-  createdAt: 'createdAt',
-  updatedAt: 'updatedAt'
+  name: 'name',
+  icon: 'icon',
+  sort_id: 'sort_id',
+  type: 'type'
 } as const
 
-export type AssignmentTypeScalarFieldEnum = (typeof AssignmentTypeScalarFieldEnum)[keyof typeof AssignmentTypeScalarFieldEnum]
+export type Assessment_categoriesScalarFieldEnum = (typeof Assessment_categoriesScalarFieldEnum)[keyof typeof Assessment_categoriesScalarFieldEnum]
+
+
+export const Assessment_testsScalarFieldEnum = {
+  id: 'id',
+  assessment_id: 'assessment_id',
+  input: 'input',
+  expected_output: 'expected_output',
+  points: 'points'
+} as const
+
+export type Assessment_testsScalarFieldEnum = (typeof Assessment_testsScalarFieldEnum)[keyof typeof Assessment_testsScalarFieldEnum]
+
+
+export const SubmissionsScalarFieldEnum = {
+  id: 'id',
+  user_id: 'user_id',
+  assessment_id: 'assessment_id',
+  submitted_code: 'submitted_code',
+  result: 'result',
+  score: 'score',
+  submitted_at: 'submitted_at',
+  graded_at: 'graded_at',
+  graded: 'graded',
+  compile_res: 'compile_res',
+  test_res: 'test_res',
+  test_error: 'test_error'
+} as const
+
+export type SubmissionsScalarFieldEnum = (typeof SubmissionsScalarFieldEnum)[keyof typeof SubmissionsScalarFieldEnum]
 
 
 export const UserScalarFieldEnum = {
@@ -748,6 +929,20 @@ export type NullsOrder = (typeof NullsOrder)[keyof typeof NullsOrder]
 
 
 /**
+ * Reference to a field of type 'Int'
+ */
+export type IntFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Int'>
+    
+
+
+/**
+ * Reference to a field of type 'Int[]'
+ */
+export type ListIntFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Int[]'>
+    
+
+
+/**
  * Reference to a field of type 'String'
  */
 export type StringFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'String'>
@@ -762,6 +957,20 @@ export type ListStringFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaMod
 
 
 /**
+ * Reference to a field of type 'ExerciseCategoryType'
+ */
+export type EnumExerciseCategoryTypeFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'ExerciseCategoryType'>
+    
+
+
+/**
+ * Reference to a field of type 'ExerciseCategoryType[]'
+ */
+export type ListEnumExerciseCategoryTypeFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'ExerciseCategoryType[]'>
+    
+
+
+/**
  * Reference to a field of type 'DateTime'
  */
 export type DateTimeFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'DateTime'>
@@ -772,20 +981,6 @@ export type DateTimeFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel
  * Reference to a field of type 'DateTime[]'
  */
 export type ListDateTimeFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'DateTime[]'>
-    
-
-
-/**
- * Reference to a field of type 'Int'
- */
-export type IntFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Int'>
-    
-
-
-/**
- * Reference to a field of type 'Int[]'
- */
-export type ListIntFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Int[]'>
     
 
 
@@ -953,8 +1148,10 @@ export interface PrismaClientOptionsWithAdapter extends PrismaClientBaseOptions 
  */
 export type PrismaClientOptions = PrismaClientOptionsWithAccelerateUrl | PrismaClientOptionsWithAdapter
 export type GlobalOmitConfig = {
-  assignment?: Prisma.AssignmentOmit
-  assignmentType?: Prisma.AssignmentTypeOmit
+  assessment?: Prisma.assessmentOmit
+  assessment_categories?: Prisma.assessment_categoriesOmit
+  assessment_tests?: Prisma.assessment_testsOmit
+  submissions?: Prisma.submissionsOmit
   user?: Prisma.UserOmit
 }
 

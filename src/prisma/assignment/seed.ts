@@ -2,7 +2,11 @@ import "dotenv/config"
 import { connectDatabase, db } from "../db";
 
 const assignments = [
-        { title: "Hello World", description: "Tell the world you are about to code", profilePhotoUrl: "null" },
+  {
+    id: 1,
+    title: "Hello World",
+    description: "Tell the world you are about to code",
+  },
 ];
 
 let pendingSeed: Promise<void> | undefined;
@@ -11,11 +15,11 @@ async function runSeed(): Promise<void> {
         await connectDatabase();
 
         for (const assignment of assignments) {
-                await db.Assignment.upsert({
-                        create: assignment,
-                        update: {},
-                        where: { title: assignment.title } 
-                });
+          await db.assessment.upsert({
+            where: { id: assignment.id },
+            create: assignment,
+            update: {},
+          });
         }
 }
 

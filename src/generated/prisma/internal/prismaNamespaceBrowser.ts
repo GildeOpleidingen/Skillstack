@@ -51,8 +51,10 @@ export const AnyNull = runtime.AnyNull
 
 
 export const ModelName = {
-  Assignment: 'Assignment',
-  AssignmentType: 'AssignmentType',
+  assessment: 'assessment',
+  assessment_categories: 'assessment_categories',
+  assessment_tests: 'assessment_tests',
+  submissions: 'submissions',
   User: 'User'
 } as const
 
@@ -72,27 +74,58 @@ export const TransactionIsolationLevel = runtime.makeStrictEnum({
 export type TransactionIsolationLevel = (typeof TransactionIsolationLevel)[keyof typeof TransactionIsolationLevel]
 
 
-export const AssignmentScalarFieldEnum = {
+export const AssessmentScalarFieldEnum = {
   id: 'id',
   title: 'title',
   description: 'description',
-  profilePhotoUrl: 'profilePhotoUrl',
-  assignmentTypeId: 'assignmentTypeId',
-  createdAt: 'createdAt',
-  updatedAt: 'updatedAt'
+  input: 'input',
+  expected_output: 'expected_output',
+  max_score: 'max_score',
+  assessment_category_id: 'assessment_category_id',
+  sub_id: 'sub_id'
 } as const
 
-export type AssignmentScalarFieldEnum = (typeof AssignmentScalarFieldEnum)[keyof typeof AssignmentScalarFieldEnum]
+export type AssessmentScalarFieldEnum = (typeof AssessmentScalarFieldEnum)[keyof typeof AssessmentScalarFieldEnum]
 
 
-export const AssignmentTypeScalarFieldEnum = {
+export const Assessment_categoriesScalarFieldEnum = {
   id: 'id',
-  typeName: 'typeName',
-  createdAt: 'createdAt',
-  updatedAt: 'updatedAt'
+  name: 'name',
+  icon: 'icon',
+  sort_id: 'sort_id',
+  type: 'type'
 } as const
 
-export type AssignmentTypeScalarFieldEnum = (typeof AssignmentTypeScalarFieldEnum)[keyof typeof AssignmentTypeScalarFieldEnum]
+export type Assessment_categoriesScalarFieldEnum = (typeof Assessment_categoriesScalarFieldEnum)[keyof typeof Assessment_categoriesScalarFieldEnum]
+
+
+export const Assessment_testsScalarFieldEnum = {
+  id: 'id',
+  assessment_id: 'assessment_id',
+  input: 'input',
+  expected_output: 'expected_output',
+  points: 'points'
+} as const
+
+export type Assessment_testsScalarFieldEnum = (typeof Assessment_testsScalarFieldEnum)[keyof typeof Assessment_testsScalarFieldEnum]
+
+
+export const SubmissionsScalarFieldEnum = {
+  id: 'id',
+  user_id: 'user_id',
+  assessment_id: 'assessment_id',
+  submitted_code: 'submitted_code',
+  result: 'result',
+  score: 'score',
+  submitted_at: 'submitted_at',
+  graded_at: 'graded_at',
+  graded: 'graded',
+  compile_res: 'compile_res',
+  test_res: 'test_res',
+  test_error: 'test_error'
+} as const
+
+export type SubmissionsScalarFieldEnum = (typeof SubmissionsScalarFieldEnum)[keyof typeof SubmissionsScalarFieldEnum]
 
 
 export const UserScalarFieldEnum = {

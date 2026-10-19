@@ -415,12 +415,8 @@ export type UserSumOrderByAggregateInput = {
   github_id?: Prisma.SortOrder
 }
 
-export type IntFieldUpdateOperationsInput = {
-  set?: number
-  increment?: number
-  decrement?: number
-  multiply?: number
-  divide?: number
+export type DateTimeFieldUpdateOperationsInput = {
+  set?: Date | string
 }
 
 

@@ -18,15 +18,25 @@ export { Prisma }
 export * as $Enums from './enums'
 export * from './enums';
 /**
- * Model Assignment
+ * Model assessment
  * 
  */
-export type Assignment = Prisma.AssignmentModel
+export type assessment = Prisma.assessmentModel
 /**
- * Model AssignmentType
+ * Model assessment_categories
  * 
  */
-export type AssignmentType = Prisma.AssignmentTypeModel
+export type assessment_categories = Prisma.assessment_categoriesModel
+/**
+ * Model assessment_tests
+ * 
+ */
+export type assessment_tests = Prisma.assessment_testsModel
+/**
+ * Model submissions
+ * 
+ */
+export type submissions = Prisma.submissionsModel
 /**
  * Model User
  * 

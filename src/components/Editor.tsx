@@ -76,10 +76,10 @@ function saveCode(code)
 export default function CodeEditor({exerciseId, code = null, }) {
 
         // We pass on the exerciseId (props)?
-        console.log('Exercise ID#: ', exerciseId);
+        console.debug('components/Editor - CodeEditor - Exercise ID#: ', exerciseId);
 
         let lang = getMonacoLanguage("C++").id;
-        console.log('Language selected: ', lang);
+        console.debug('components/Editor - CodeEditor - Language selected: ', lang);
 
 	return (
 		<div>

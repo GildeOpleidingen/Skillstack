@@ -47,7 +47,7 @@ export const authConfig: NextAuthConfig = {
                         console.log('auth.config.ts - signIn - profile: ', profile);
 
                         const githubId = Number(profile.id);
-                        console.log(githubId)
+                        console.log('auth.config.ts - signIn - githubId: ', githubId)
                         // Upsert user into DB
 
                         await connectDatabase();

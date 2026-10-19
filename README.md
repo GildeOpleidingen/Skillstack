@@ -24,7 +24,7 @@ After creating the .env file with the right database URL.
 You can create the database with the command:
 
 ```bash
-npx prisma db pus
+npx prisma db push
 ```
 
 To Seed the database with test rows:
@@ -32,7 +32,23 @@ To Seed the database with test rows:
 ```bash
 npm run seed
 ```
+To create a new migration (after changing .prisma files in prisma folder)
 
+```bash
+npx prisma migrate dev --name rename_exercises_to_assessments --create-only
+```
+
+To validate the changes:
+
+```bash
+npx prisma validate
+```
+
+To create the new migration:
+
+```bash
+npx prisma migrate dev
+```
 
 #### Linux database postgresql installation
 

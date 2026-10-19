@@ -44,7 +44,7 @@ To validate the changes:
 npx prisma validate
 ```
 
-To create the new migration:
+To create the new migration and apply it:
 
 ```bash
 npx prisma migrate dev

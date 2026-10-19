@@ -2,6 +2,29 @@ enum ExerciseCategoryType {
   python
   cpp    @map("c++")
   nodejs
+  typeScript
+  javaScript
+  css
+  less
+  scss
+  json
+  html
+  xml
+  php
+  csharp @map("c#")
+  razor
+  markdown
+  java
+  vb
+  coffeescript
+  batch
+  pug
+  fsharp @map("f#")
+  lua
+  powershell
+  ruby
+  r
+  objectivec @map("objective-c")
 }
 
 model assessment {

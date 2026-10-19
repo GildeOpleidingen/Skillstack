@@ -47,7 +47,7 @@ export default async function Home() {
                                 <a href="/roadmap">Roadmap link to page</a>
                                 <a href="/user" className="rounded-lg bg-blue-600 px-4 py-2 text-white hover:bg-blue-700" >Database test!!</a>
                                 <br />
-                                <a href="/assessments" className="rounded-lg bg-blue-600 px-4 py-2 text-white hover:bg-blue-700" >Assessments database test</a>
+                                <a href="/assessment" className="rounded-lg bg-blue-600 px-4 py-2 text-white hover:bg-blue-700" >Assessments database test</a>
                                 <hr />
 
                                 { /* Test of code editor */ }

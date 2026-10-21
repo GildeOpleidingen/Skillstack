@@ -10,4 +10,3 @@ const adapter = new PrismaPg({
 export const prisma = new PrismaClient({ adapter });
 export const db = prisma;
 export const connectDatabase = () => prisma.$connect();
-

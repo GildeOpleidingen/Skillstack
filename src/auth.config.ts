@@ -1,7 +1,7 @@
 import GitHub from "next-auth/providers/github";
 import type { NextAuthConfig } from "next-auth";
 import { db, connectDatabase } from "./prisma/db";
-
+    
 const requiredEnv = [
         "AUTH_SECRET",
         "AUTH_GITHUB_ID",

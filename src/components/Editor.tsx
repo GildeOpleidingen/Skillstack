@@ -94,14 +94,14 @@ export default function CodeEditor({exerciseId, code = null, }) {
 		          onChange={saveCode}
 		          theme="vs-dark"
 		          options={{
-		            minimap: { enabled: false },
-		            fontSize: 14,
-		            lineNumbers: 'on',
-		            scrollBeyondLastLine: false,
-		            automaticLayout: true,
-		            tabSize: 4,
-		            wordWrap: 'on',
-		            padding: { top: 16, bottom: 16 },
+                                minimap: { enabled: false },
+                                fontSize: 14,
+                                lineNumbers: 'on',
+                                scrollBeyondLastLine: false,
+                                automaticLayout: true,
+                                tabSize: 4,
+                                wordWrap: 'on',
+                                padding: { top: 16, bottom: 16 },
 		          }}
 	        />
 		</div>

@@ -20,18 +20,18 @@ export default async function Home() {
         
         return (
                   <div className="flex min-h-screen flex-col bg-zinc-50 dark:bg-black">
-                            <header className="w-full bg-orange-50 px-6 py-4">
-                              <div className="mx-auto flex w-full max-w-3xl items-center">
-                                <Image
-                                  src="/logo_big.png"
-                                  alt="SkillStack"
-                                  width={180}
-                                  height={60}
-                                  priority
-                                  className="h-auto w-[180px]"
-                                />
-                              </div>
-                            </header>
+                        <header className="w-full bg-orange-50 px-6 py-4">
+                                <div className="mx-auto flex w-full max-w-3xl items-center">
+                                        <Image
+                                          src="/logo_big.png"
+                                          alt="SkillStack"
+                                          width={180}
+                                          height={60}
+                                          priority
+                                          className="h-auto w-[180px]"
+                                        />
+                                </div>
+                        </header>
                          <main className="mx-auto flex w-full max-w-3xl flex-1 flex-col bg-white p-6 dark:bg-black sm:items-start">
                                 Session:
                                 <pre>

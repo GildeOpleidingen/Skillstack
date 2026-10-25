@@ -35,7 +35,7 @@ export default function DashboardSidebar() {
   const { state } = useSidebar()
 
   return (
-    <Sidebar collapsible="icon" variant="inset">
+    <Sidebar collapsible="icon" variant="inset" className="pt-8">
       <SidebarHeader>
         <SidebarMenu>
           <SidebarMenuItem>

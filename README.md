@@ -88,6 +88,9 @@ AUTH_URL=http://localhost:3000
 ## Design stuff
 
 Using shadcn.
+
+https://ui.shadcn.com/docs
+
 To add extra features use for example:
 ```bash
 npx shadcn@latest add dropdown-menu

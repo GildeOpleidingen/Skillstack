@@ -5,6 +5,8 @@ import {
 } from '@/components/ui/sidebar'
 import DashboardSidebar from '@/components/dashboard/dashboard-sidebar'
 import { cookies } from 'next/headers'
+import Header from '@/components/header'
+import Footer from '@/components/footer'
 
 export default async function DashboardLayout({
   children
@@ -13,15 +15,24 @@ export default async function DashboardLayout({
   const defaultOpen = cookieStore.get('sidebar:state')?.value === 'true'
 
   return (
-    <SidebarProvider defaultOpen={defaultOpen}>
-      <DashboardSidebar />
+    <div className="flex min-h-dvh flex-col">
+  <Header />
 
-      <SidebarInset>
-        <main className='p-4'>
-          <SidebarTrigger />
-          {children}
-        </main>
-      </SidebarInset>
-    </SidebarProvider>
+  <SidebarProvider
+    defaultOpen={defaultOpen}
+    className="relative min-h-0 flex-1"
+  >
+    <DashboardSidebar />
+
+    <SidebarInset className="min-h-0 flex-1">
+      <main className="flex min-h-0 flex-1 flex-col pt-8">
+        <SidebarTrigger />
+        {children}
+      </main>
+    </SidebarInset>
+  </SidebarProvider>
+
+  <Footer />
+</div>
   )
 }

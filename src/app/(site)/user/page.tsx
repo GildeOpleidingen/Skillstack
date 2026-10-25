@@ -1,5 +1,5 @@
 
-import { db, connectDatabase } from "../../prisma/db";
+import { db, connectDatabase } from "@/prisma/db";
 
 export default async function user() {
         

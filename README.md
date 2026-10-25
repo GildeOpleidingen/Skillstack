@@ -84,6 +84,17 @@ AUTH_GITHUB_SECRET=...
 
 AUTH_URL=http://localhost:3000
 
+
+## Design stuff
+
+Using shadcn.
+To add extra features use for example:
+```bash
+npx shadcn@latest add dropdown-menu
+
+npx shadcn@latest add sonner    
+```
+
 ## TDD (tests)
 > Start NextJS local
 ```bash

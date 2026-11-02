@@ -65,6 +65,27 @@ createdb -O rayit skillstack
 
 ```
 
+Gentoo as root:
+
+```bash
+emerge --ask dev-db/postgresql
+
+emerge --config dev-db/postgresql:18 
+
+systemctl start postgresql-18.service 
+
+systemctl enable postgresql-18.service 
+
+su - postgres
+psql 
+
+postgres=# CREATE ROLE rayit WITH LOGIN PASSWORD '****';
+CREATE ROLE
+postgres=# CREATE DATABASE skillstack WITH OWNER rayit;
+CREATE DATABASE
+
+```
+
 #### Quick reference commands 
 
 see: npm run 
